@@ -2,9 +2,13 @@
 
 Say **yo sqlproj** and get started with a mssql database project.
 
+> This project requires Windows OS, Visual Studio 2017 and the latest DACFx to run end to end. Otherwise build and publish scenario will not work. 
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-sqlproj using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+
+Install [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) to import a database. 
 
 > Not published to npm public repository.
 
@@ -21,8 +25,6 @@ Then generate your new project:
 ```bash
 yo sqlproj
 ```
-
-
 
 ## Getting To Know Yeoman
 
