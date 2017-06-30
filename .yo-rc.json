@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Eric Kang",
+      "authorEmail": "erickangatms@outlook.com",
+      "authorUrl": "https://gitbug.com/erickangMSFT"
+    }
+  }
+}

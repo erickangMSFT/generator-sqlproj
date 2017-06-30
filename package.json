@@ -1,0 +1,54 @@
+{
+  "name": "generator-sqlproj",
+  "version": "0.0.1",
+  "description": "Say yo sqlproj and get started developing mssql database.",
+  "homepage": "https://gihub.com/erickangMSFT/genertor-sqlproj",
+  "author": {
+    "name": "Eric Kang",
+    "email": "erickangatms@outlook.com",
+    "url": "https://gitbug.com/erickangMSFT/generator-sqlproj"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "mssql",
+    "sqlproj",
+    "msbuild",
+    "dacfx"
+  ],
+  "devDependencies": {
+    "yeoman-test": "^1.6.0",
+    "yeoman-assert": "^3.0.0",
+    "coveralls": "^2.13.1",
+    "nsp": "^2.6.3",
+    "eslint": "^4.1.0",
+    "eslint-config-xo-space": "^0.16.0",
+    "jest": "^19.0.2",
+    "jest-cli": "^20.0.0"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "mkdirp": "^0.5.1",
+    "yeoman-generator": "^1.0.0",
+    "yosay": "^2.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "prepublish": "nsp check",
+    "pretest": "eslint . --fix",
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "jest": true,
+      "node": true
+    }
+  },
+  "repository": "erickangMSFT/generator-sqlproj",
+  "license": "MIT"
+}
