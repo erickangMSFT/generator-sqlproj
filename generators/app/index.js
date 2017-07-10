@@ -83,12 +83,8 @@ module.exports = class extends Generator {
   }
   _writingTsqlFolders() {
 
-    this.fs.copy(
-      this.templatePath('src/_organize.sh'),
-      this.destinationPath('src/organize.sh')
-    );
-
     if (!this.options['skip-folders']) {
+      mkdirp('src');
       mkdirp('src/tables');
       mkdirp('src/views');
       mkdirp('src/procedures');
@@ -102,19 +98,19 @@ module.exports = class extends Generator {
 
   _writingUtilfiles() {
     this.fs.copy(
-      this.templatePath('utils/_importdb.cmd'),
-      this.destinationPath('utils/importdb.cmd')
+      this.templatePath('utils/_importdb.ps1'),
+      this.destinationPath('utils/importdb.ps1')
     );
     this.fs.copyTpl(
-      this.templatePath('utils/_build.cmd'),
-      this.destinationPath('utils/build.cmd'),
+      this.templatePath('utils/_build.ps1'),
+      this.destinationPath('utils/build.ps1'),
       {
         name: this.props.name
       }
     );
     this.fs.copyTpl(
-      this.templatePath('utils/_publish.cmd'),
-      this.destinationPath('utils/publish.cmd'),
+      this.templatePath('utils/_publish.ps1'),
+      this.destinationPath('utils/publish.ps1'),
       {
         name: this.props.name
       }
