@@ -1,7 +1,7 @@
 {
   "name": "generator-sqlproj",
-  "version": "0.0.1",
-  "description": "Say yo sqlproj and get started developing mssql database.",
+  "version": "0.1.0",
+  "description": "Say yo sqlproj and start developing mssql database.",
   "homepage": "https://gihub.com/erickangMSFT/genertor-sqlproj",
   "author": {
     "name": "Eric Kang",

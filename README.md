@@ -1,39 +1,55 @@
 # Yeoman generator-sqlproj 
 
-Say **yo sqlproj** and get started with a mssql database project.
+Say **yo sqlproj** and start developing mssql database.
 
-> This project requires Windows OS, Visual Studio 2017 and the latest DACFx to run end to end. Otherwise build and publish scenario will not work. 
+> This project requires Windows OS to build and publish a database because the build and publish tasks depend on Data-tier Application Framework (DacFx). It is available on Windows only. 
 
-## Installation
+## Getting Started
 
 First, install [Yeoman](http://yeoman.io) and generator-sqlproj using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
-Install [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) to import a database. 
-
-> Not published to npm public repository.
-
 ```bash
-git clone
 npm install -g yo
-# npm install -g generator-sqlproj
-npm link
-
+npm install -g generator-sqlproj
 ```
 
-Then generate your new project:
+Create a new folder for your database project and run yo sqlproj.
 
 ```bash
+mkdir c:\mydatabase
+cd c:\mydatabase
 yo sqlproj
 ```
 
-## Getting To Know Yeoman
+To import an existing database to the project, install [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) 
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+```bash
+pip install mssql-scripter
 
-## License
+```
 
-MIT © [Eric Kang](https://github.com/erickangMSFT)
+Then, open ./utils/importdb.ps1 and edit the server, database name to your -S server and -d database. If you are using SQL Login, add -u username and -P password for the connection. Then run it.
 
+```ps
+powershell ./utils/importdb.ps1 
+```
+
+To build and publish the database project to mssql, 
+- install [Visual Studio 2017](https://www.visualstudio.com/downloads) inlcuding Data Storage and Process Workload 
+- or install [Build Tools for Visual Studio 2017](https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2017) and [DacFx (Data-tier Application Framework)](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt)
+
+Build
+```ps
+powershell ./utils/build.ps1
+```
+
+Publish
+```ps
+powershell ./utils/publish.ps1
+```
+To change the publish target server and database, edit ./publish_profiles/localdev.publish.xml file.
+
+```xml
+<TargetConnectionString>Data Source=localhost;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</TargetConnectionString>
+
+```
